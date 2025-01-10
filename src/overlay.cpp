@@ -45,7 +45,7 @@ std::deque<logData> graph_data;
 const char* engines[] = {"Unknown", "OpenGL", "VULKAN", "DXVK", "VKD3D", "DAMAVAND", "ZINK", "WINED3D", "Feral3D", "ToGL", "GAMESCOPE"};
 const char* engines_short[] = {"Unknown", "OGL", "VK", "DXVK", "VKD3D", "DV", "ZINK", "WD3D", "Feral3D", "ToGL", "GS"};
 overlay_params *_params {};
-double min_frametime, max_frametime;
+double min_frametime, max_frametime, min_fps;
 bool gpu_metrics_exists = false;
 bool steam_focused = false;
 vector<float> frametime_data(200,0.f);
@@ -286,6 +286,8 @@ void update_hud_info_with_frametime(struct swapchain_stats& sw_stats, const stru
    auto max = std::max_element(frametime_data.begin(), frametime_data.end());
    min_frametime = min[0];
    max_frametime = max[0];
+   min_fps = double(1000 / max_frametime);
+
    // double min_time = UINT64_MAX, max_time = 0;
    // for (auto& stat : sw_stats.frames_stats ){
    //    min_time = MIN2(stat.stats[0], min_time);

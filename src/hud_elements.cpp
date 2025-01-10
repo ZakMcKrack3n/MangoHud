@@ -658,11 +658,18 @@ void HudElements::fps(){
             ImGui::PopFont();
         }
         if (HUDElements.params->enabled[OVERLAY_PARAM_ENABLED_frametime]){
+            // ImguiNextColumnOrNewRow();
+            // right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%.1f", 1000 / HUDElements.sw_stats->fps);
+            // ImGui::SameLine(0, 1.0f);
+            // ImGui::PushFont(HUDElements.sw_stats->font1);
+            // HUDElements.TextColored(HUDElements.colors.text, "ms");
+            // ImGui::PopFont();
+
             ImguiNextColumnOrNewRow();
-            right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%.1f", 1000 / HUDElements.sw_stats->fps);
+            right_aligned_text(HUDElements.colors.text, HUDElements.ralign_width, "%.0f", min_fps);
             ImGui::SameLine(0, 1.0f);
             ImGui::PushFont(HUDElements.sw_stats->font1);
-            HUDElements.TextColored(HUDElements.colors.text, "ms");
+            HUDElements.TextColored(HUDElements.colors.text, "MIN FPS");
             ImGui::PopFont();
         }
     } else if (HUDElements.params->enabled[OVERLAY_PARAM_ENABLED_engine_version]){

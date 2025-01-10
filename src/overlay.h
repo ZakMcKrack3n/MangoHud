@@ -87,7 +87,7 @@ extern ImVec2 real_font_size;
 extern std::string wineVersion;
 extern std::deque<logData> graph_data;
 extern overlay_params *_params;
-extern double min_frametime, max_frametime;
+extern double min_frametime, max_frametime, min_fps;
 extern bool steam_focused;
 extern int fan_speed;
 extern int current_preset;
